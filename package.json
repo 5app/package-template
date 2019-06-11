@@ -1,0 +1,32 @@
+{
+  "name": "js-template",
+  "version": "0.0.0",
+  "description": "Description",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "lint-fix": "npm run lint -- --fix",
+    "lint-diff": "LIST=`git diff-index --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
+    "precommit-msg": "echo 'Running pre-commit checks... (skip using --no-verify)' && exit 0",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5app/js-template.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5app/js-template/issues"
+  },
+  "homepage": "https://github.com/5app/js-template#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-5app": "^0.6.3",
+    "husky": "^2.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit-msg && npm run lint-diff"
+    }
+  }
+}
