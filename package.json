@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/5app/js-template#readme",
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "eslint-config-5app": "^0.6.3",
     "husky": "^2.4.0"
   },
