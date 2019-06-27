@@ -1,5 +1,7 @@
 # JS Template
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/5app/js-template.svg)](https://greenkeeper.io/)
+
 This is a template for starting new JS projects at 5app.
 
 ## Getting started
