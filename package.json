@@ -9,6 +9,7 @@
     "lint-fix": "npm run lint -- --fix",
     "lint-diff": "LIST=`git diff-index --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "precommit-msg": "echo 'Running pre-commit checks... (skip using --no-verify)' && exit 0",
+    "semantic-release": "semantic-release",
     "test": "npm run lint"
   },
   "repository": {
@@ -21,9 +22,12 @@
   },
   "homepage": "https://github.com/5app/js-template#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.12",
     "eslint": "^6.0.0",
-    "eslint-config-5app": "^0.6.3",
-    "husky": "^2.4.0"
+    "eslint-config-5app": "^0.6.5",
+    "husky": "^2.7.0",
+    "semantic-release": "^15.13.16"
   },
   "husky": {
     "hooks": {

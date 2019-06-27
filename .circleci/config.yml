@@ -39,9 +39,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - checkout
-      - run:
-          name: Running deploy
-          command: echo "deploy"
+      - run: npm run semantic-release
 
 workflows:
   version: 2
