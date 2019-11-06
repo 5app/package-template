@@ -29,6 +29,9 @@
     "husky": "^3.0.4",
     "semantic-release": "^15.13.16"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run precommit-msg && npm run lint-diff"
