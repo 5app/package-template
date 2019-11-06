@@ -25,8 +25,11 @@ jobs:
       - restore_cache: 
           <<: *cache_key
       - run:
-          name: install dependencies with npm
+          name: npm install
           command: npm install
+      - run:
+          name: npm test
+          command: npm test
       - save_cache:
           <<: *cache_key
           paths:
