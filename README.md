@@ -2,7 +2,6 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/5app/js-template.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/5app/js-template.svg?style=shield)](https://circleci.com/gh/5app/js-template)
-[![NPM Version](https://img.shields.io/npm/v/js-template.svg)](https://www.npmjs.com/package/js-template)
 
 This is a template for starting new JS projects at 5app.
 
