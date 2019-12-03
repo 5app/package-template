@@ -9,12 +9,6 @@ This is a template for starting new JS projects at 5app.
 
 Run `npm init` to configure package.json
 
-
-### For private projects
-
-1. [Optionally] Remove `.npmrc` file.
-   This is used to track dependencies but for published packages this is superfluous
-
 ### For packages to be posted to NPM
 
 1. Remove the setting `private: true` from [./package.json](./package.json]).

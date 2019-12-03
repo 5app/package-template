@@ -16,6 +16,13 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache: 
+          <<: *cache_key
+      - run: npm install
+      - save_cache:
+          <<: *cache_key
+          paths:
+            - ./node_modules
       - persist_to_workspace:
           root: *dir
           paths:
@@ -25,24 +32,20 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - restore_cache: 
-          <<: *cache_key
-      - run: npm install
+      - run: npm run lint
       - run: npm test
-      - save_cache:
-          <<: *cache_key
-          paths:
-            - ./node_modules
-      - persist_to_workspace:
-          root: *dir
-          paths:
-            - node_modules
+
+  audit:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm audit
 
   release:
     <<: *defaults
     steps:
       - *attach_workspace
-      - checkout
+      # - checkout # Commenting this line out as I don't think it is needed, please uncomment if the release fails
       - run: npm run semantic-release
 
 workflows:
@@ -53,7 +56,14 @@ workflows:
       - test:
           requires:
             - checkout_code
+      - audit:
+          requires:
+            - checkout_code
       - release:
           context: org-global
           requires:
             - test
+          filters:
+            branches:
+              only:
+                - master

@@ -10,7 +10,7 @@
     "lint-diff": "LIST=`git diff-index --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "precommit-msg": "echo 'Running pre-commit checks... (skip using --no-verify)' && exit 0",
     "semantic-release": "semantic-release",
-    "test": "npm run lint"
+    "test": "echo 'No tests' && exit 0"
   },
   "repository": {
     "type": "git",
