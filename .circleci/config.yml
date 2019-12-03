@@ -56,10 +56,14 @@ workflows:
       - test:
           requires:
             - checkout_code
+      - audit:
+          requires:
+            - checkout_code
       - release:
           context: org-global
           requires:
             - test
-      - audit:
-          requires:
-            - checkout_code
+          filters:
+            branches:
+              only:
+                - master
