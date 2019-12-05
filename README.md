@@ -1,4 +1,4 @@
-# JS Template
+# Package Template
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/5app/js-template.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/5app/js-template.svg?style=shield)](https://circleci.com/gh/5app/js-template)
