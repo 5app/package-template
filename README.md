@@ -1,7 +1,7 @@
 # Package Template
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/5app/js-template.svg)](https://greenkeeper.io/)
-[![CircleCI](https://circleci.com/gh/5app/js-template.svg?style=shield)](https://circleci.com/gh/5app/js-template)
+[![Greenkeeper badge](https://badges.greenkeeper.io/5app/package-template.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/5app/package-template.svg?style=shield)](https://circleci.com/gh/5app/package-template)
 
 This is a template for starting new JS projects at 5app.
 
