@@ -1,18 +1,13 @@
-# JS Template
+# Package Template
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/5app/js-template.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/5app/package-template.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/5app/package-template.svg?style=shield)](https://circleci.com/gh/5app/package-template)
 
 This is a template for starting new JS projects at 5app.
 
 ## Getting started
 
 Run `npm init` to configure package.json
-
-
-### For private projects
-
-1. [Optionally] Remove `.npmrc` file.
-   This is used to track dependencies but for published packages this is superfluous
 
 ### For packages to be posted to NPM
 

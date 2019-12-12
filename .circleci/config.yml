@@ -1,7 +1,14 @@
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.16.2
+aliases:
+  - &dir ~/repo
+  - &defaults
+    working_directory: *dir
+    docker:
+      - image: circleci/node:lts
+  - &cache_key
+    key: dependency-cache-{{ checksum "package.json" }}
+  - &attach_workspace
+    attach_workspace:
+       at: *dir
 
 version: 2
 jobs:
@@ -9,36 +16,36 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache: 
+          <<: *cache_key
+      - run: npm install
+      - save_cache:
+          <<: *cache_key
+          paths:
+            - ./node_modules
       - persist_to_workspace:
-          root: ~/repo
+          root: *dir
           paths:
             - .
 
   test:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install dependencies with npm
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - node_modules
+      - *attach_workspace
+      - run: npm run lint
+      - run: npm test
+
+  audit:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm audit
 
   release:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
-      - checkout
+      - *attach_workspace
+      # - checkout # Commenting this line out as I don't think it is needed, please uncomment if the release fails
       - run: npm run semantic-release
 
 workflows:
@@ -49,7 +56,14 @@ workflows:
       - test:
           requires:
             - checkout_code
+      - audit:
+          requires:
+            - checkout_code
       - release:
           context: org-global
           requires:
             - test
+          filters:
+            branches:
+              only:
+                - master
