@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/5app/js-template/compare/v1.1.1...v1.2.0) (2019-12-12)
+
+
+### Features
+
+* **prettier:** format file commits using prettier ([#22](https://github.com/5app/js-template/issues/22)) ([7f6eee8](https://github.com/5app/js-template/commit/7f6eee8f884fa4b21a7799df4b6727ab0a430415))
+
 ## [1.1.1](https://github.com/5app/js-template/compare/v1.1.0...v1.1.1) (2019-11-06)
 
 
