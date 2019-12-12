@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/5app/js-template/compare/v1.2.0...v1.2.1) (2019-12-12)
+
+
+### Bug Fixes
+
+* **deps:** npm audit ([ca738db](https://github.com/5app/js-template/commit/ca738dba9044e54931fab71afdee889a8acde958))
+
 # [1.2.0](https://github.com/5app/js-template/compare/v1.1.1...v1.2.0) (2019-12-12)
 
 
