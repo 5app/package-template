@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/5app/package-template/compare/v1.2.1...v1.2.2) (2020-03-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies ([899633c](https://github.com/5app/package-template/commit/899633cbae3542ddb4efbba6af646e0897eac606))
+
 ## [1.2.1](https://github.com/5app/js-template/compare/v1.2.0...v1.2.1) (2019-12-12)
 
 
