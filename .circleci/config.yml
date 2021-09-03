@@ -1,47 +1,27 @@
 version: 2.1
 
-aliases:
-    - &dir ~/repo
-    - &cache_key dependency-cache-{{ checksum "package.json" }}
-    - &attach_workspace
-      attach_workspace:
-          at: *dir
+orbs:
+    node: circleci/node@4.1
 
 executors:
     default:
-        working_directory: *dir
         docker:
-            - image: circleci/node:14
+            - image: cimg/node:lts
 
 jobs:
-    checkout_code:
-        executor: default
-        steps:
-            - checkout
-            - restore_cache:
-                  key: *cache_key
-            - run: npm install
-            - save_cache:
-                  key: *cache_key
-                  paths:
-                      - ./node_modules
-            - persist_to_workspace:
-                  root: *dir
-                  paths:
-                      - .
-
     test:
         executor: default
         steps:
-            - *attach_workspace
+            - checkout
+            - node/install-packages
             - run: npm run lint
             - run: npm test
 
     release:
         executor: default
         steps:
-            - *attach_workspace
-            # `checkout` isn't needed for public repos but might be for private repos.
+            - checkout
+            - node/install-packages
             # if you have issues, try uncommenting, if not, please remove these comments.
             #            - checkout
             - run: npm run semantic-release
@@ -49,10 +29,7 @@ jobs:
 workflows:
     build:
         jobs:
-            - checkout_code
-            - test:
-                  requires:
-                      - checkout_code
+            - test
             - release:
                   context: org-global
                   requires:
