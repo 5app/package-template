@@ -9,7 +9,6 @@
 		"lint-fix": "npm run lint -- --fix",
 		"lint-diff": "LIST=`git diff-index --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
 		"precommit-msg": "echo 'Running pre-commit checks... (skip using --no-verify)'",
-		"semantic-release": "semantic-release",
 		"test": "echo 'implement tests'"
 	},
 	"repository": {
@@ -22,10 +21,9 @@
 	},
 	"homepage": "https://github.com/5app/package-template#readme",
 	"devDependencies": {
+		"@5app/semantic-release-config": "^1.0.0",
 		"@commitlint/cli": "^16.1.0",
 		"@commitlint/config-conventional": "^16.0.0",
-		"@semantic-release/changelog": "^6.0.1",
-		"@semantic-release/git": "^10.0.1",
 		"eslint": "^8.8.0",
 		"eslint-config-5app": "^0.16.2",
 		"eslint-config-prettier": "^8.3.0",
@@ -58,5 +56,8 @@
 			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
 			"pre-commit": "pretty-quick --staged && npm run precommit-msg && npm run lint-diff"
 		}
+	},
+	"release": {
+		"extends": "@5app/semantic-release-config"
 	}
 }

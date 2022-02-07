@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    node: circleci/node@4.1
+    node: circleci/node@5
 
 executors:
     default:
@@ -22,9 +22,7 @@ jobs:
         steps:
             - checkout
             - node/install-packages
-            # if you have issues, try uncommenting, if not, please remove these comments.
-            #            - checkout
-            - run: npm run semantic-release
+            - run: npx semantic-release
 
 workflows:
     build:
